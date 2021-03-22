@@ -52,7 +52,7 @@ public class UserRegistrationGradle {
 
     public  static void password() {
         Scanner scan = new Scanner(System.in);
-        String passwordExp = "^.*(?=.*[A-Z])([a-z0-9])(?=.{8,}).*$";
+        String passwordExp = "^.*(?=.*[A-Z])(?=.*[0-9])([a-z])(?=.{8,}).*$";
         System.out.print("Please enter your Password of choice: ");
         String password = scan.nextLine();
         System.out.println(password);
