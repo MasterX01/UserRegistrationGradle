@@ -27,9 +27,21 @@ public class UserRegistrationGradle {
             System.out.println("Last Name you entered is Invalid");
     }
 
+    public static void email() {
+        Scanner scan = new Scanner(System.in);
+        String emailExp = "^[a-zA-Z0-9]+([.+_-]{0,1}+[a-zA-Z0-9])*+[@]+[a-zA-Z]+[.]+[a-zA-Z]{2,4}+([.]{1}+[a-zA-Z]{0,2})*";
+        System.out.print("Please enter you Email: ");
+        String email = scan.next();
+        if(Pattern.matches(emailExp, email))
+            System.out.println("The Email ID you Entered is Valid");
+        else
+            System.out.println("The Email ID you entered is Invalid");
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration Program");
         firstName();
         lastName();
+        email();
     }
 }
