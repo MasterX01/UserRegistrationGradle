@@ -38,10 +38,23 @@ public class UserRegistrationGradle {
             System.out.println("The Email ID you entered is Invalid");
     }
 
+    public static void mobNum() {
+        Scanner scan = new Scanner(System.in);
+        String phoneExp = "[0-9]{2}\\s[0-9]{10}";
+        System.out.print("Please enter you Phone Number: ");
+        String phone = scan.nextLine();
+        System.out.println(phone);
+        if(Pattern.matches(phoneExp, phone))
+            System.out.println("The Phone Number you Entered is Valid");
+        else
+            System.out.println("The Phone Number you entered is Invalid");
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration Program");
         firstName();
         lastName();
         email();
+        mobNum();
     }
 }
