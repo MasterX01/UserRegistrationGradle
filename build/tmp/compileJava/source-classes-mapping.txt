@@ -1,0 +1,2 @@
+com/bridgelabz/userregistrationgradle/UserRegistrationGradle.java
+ com.bridgelabz.userregistrationgradle.UserRegistrationGradle
