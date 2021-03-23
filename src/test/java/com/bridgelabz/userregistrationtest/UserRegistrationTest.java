@@ -133,4 +133,6 @@ public class UserRegistrationTest {
         Assertions.assertEquals("SAD", validationResult);
     }
 
+    @ParameterizedTest
+    
 }
