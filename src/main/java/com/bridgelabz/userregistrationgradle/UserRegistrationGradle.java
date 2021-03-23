@@ -62,13 +62,14 @@ public class UserRegistrationGradle {
         else
             System.out.println("The Password you entered is Invalid");
     }
+
     public static void validateEmail(ArrayList<String> emails) {
-        String emailExp = "^([a-z0-9]+[-._+]*?[a-z0-9]+)+@[a-z0-9]+.[a-z]{2,4}.[a-z]{2,4}$";
+        String emailExp = "^([a-z0-9]+[-._+]?[a-z0-9]+)@[a-z0-9-]+.[a-z]{2,4}.[a-z]{2,4}$";
         for (String mail : emails) {
             if (Pattern.matches(emailExp, mail))
                 System.out.println("The Email ID: " + mail + " is Valid");
             else
-                System.out.println("The Email ID:" + mail + " is Invalid");
+                System.out.println("The Email ID: " + mail + " is Invalid");
         }
     }
 
