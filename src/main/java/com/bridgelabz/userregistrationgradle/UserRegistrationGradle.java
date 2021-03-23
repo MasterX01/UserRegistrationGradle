@@ -1,67 +1,57 @@
 package com.bridgelabz.userregistrationgradle;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+@FunctionalInterface
+interface IUserRegistrationGradle {
+    String compare(String regex, String input);
+}
+
 public class UserRegistrationGradle {
 
-    public String validateFirstName(String fname) throws Exception {
+    IUserRegistrationGradle lambdaCompare = ((regex, input) ->
+    {
+        try {
+            if (Pattern.matches(regex, input))
+                return "HAPPY";
+        } catch (Exception e) {
+            try {
+                throw new UserRegistrationException("Invalid Input");
+            } catch (UserRegistrationException userRegistrationException) {
+                userRegistrationException.printStackTrace();
+            }
+        }
+        return "SAD";
+    });
+
+    public String validateFirstName(String fname) {
         String firstNameExp = "^[A-Z]{1}+[a-z]{2,}";
-        try {
-            if (Pattern.matches(firstNameExp, fname))
-                return "HAPPY";
-        } catch (Exception e){
-            throw new UserRegistrationException("Invalid User First Name");
-        }
-        return "SAD";
+        return lambdaCompare.compare(firstNameExp, fname);
     }
 
-    public String validateLastName(String lname) throws Exception{
+    public String validateLastName(String lname) {
         String lastNameExp = "^[A-Z]{1}+[a-z]{2,}";
-        try {
-            if (Pattern.matches(lastNameExp, lname))
-                return "HAPPY";
-        }catch (Exception e) {
-            throw new UserRegistrationException("Invalid User Last Name");
-        }
-        return "SAD";
+        return lambdaCompare.compare(lastNameExp, lname);
+
     }
 
-    public String validateEmail(String email) throws Exception{
+    public String validateEmail(String email) {
         String emailExp = "^([a-z0-9]+[-._+]?[a-zA-Z0-9]+)+@[a-z0-9]+.[a-z]{2,3}.[a-z]{2,3}$";
-        try {
-            if (Pattern.matches(emailExp, email))
-                return "HAPPY";
-        }catch (Exception e) {
-            throw new UserRegistrationException("Invalid User Email");
-        }
-        return "SAD";
+        return lambdaCompare.compare(emailExp, email);
     }
 
-    public String validateMobNum(String phone) throws Exception{
+    public String validateMobNum(String phone) {
         String phoneExp = "[0-9]{2}\\s[0-9]{10}";
-        try {
-            if (Pattern.matches(phoneExp, phone))
-                return "HAPPY";
-        }catch (Exception e) {
-            throw new UserRegistrationException("Invalid Mobile Number");
-        }
-        return "SAD";
+        return lambdaCompare.compare(phoneExp, phone);
     }
 
-    public String validatePassword(String password) throws Exception{
+    public String validatePassword(String password) {
         String passwordExp = "^.*(?=.*[A-Z])(?=.*[0-9])([a-z])(?=.*[@#$%^&+=])(?=.{8,}).*$";
-        try {
-            if (Pattern.matches(passwordExp, password))
-                return "HAPPY";
-        }catch (Exception e){
-            throw new UserRegistrationException("Invalid Password");
-        }
-        return "SAD";
+        return lambdaCompare.compare(passwordExp, password);
     }
 
-    public void takeInput() throws Exception{
+    public void takeInput() {
         Scanner scan = new Scanner(System.in);
         // First Name
         System.out.print("Please enter you first name: ");

@@ -1,4 +1,5 @@
 com/bridgelabz/userregistrationgradle/UserRegistrationException.java
  com.bridgelabz.userregistrationgradle.UserRegistrationException
 com/bridgelabz/userregistrationgradle/UserRegistrationGradle.java
+ com.bridgelabz.userregistrationgradle.IUserRegistrationGradle
  com.bridgelabz.userregistrationgradle.UserRegistrationGradle

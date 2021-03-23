@@ -20,7 +20,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateFirstName("Ak");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid User First Name", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -29,7 +29,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateFirstName("akash");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid User First Name", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateLastName("Sa");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid User Last Name", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -54,7 +54,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateLastName("saxena");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid User Last Name", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -70,7 +70,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateEmail("-akash14@gmail.com");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid User Email", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -79,7 +79,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateEmail("aakashsaxena14gmail.com");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid User Email", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -88,7 +88,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateEmail("aakashsaxena14@gmail");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid User Email", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -97,7 +97,7 @@ public class UserRegistrationTest {
         try{
             String validationResult = userRegistrationGradle.validateEmail("aakash-.saxena14@gmail.com");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid User Email", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -113,7 +113,7 @@ public class UserRegistrationTest {
         try{
             String validationResult = userRegistrationGradle.validateMobNum("918947018302");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid Mobile Number", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -122,7 +122,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateMobNum("91 89470183022");
         }catch (Exception e){
-            Assertions.assertEquals("Invalid Mobile Number", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -131,7 +131,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validateMobNum(" 8947018302");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid Mobile Number", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -147,7 +147,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validatePassword("aK@shS@xena");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid Password", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -156,7 +156,7 @@ public class UserRegistrationTest {
         try{
             String validationResult = userRegistrationGradle.validatePassword("aKashSaxena16");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid Password", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -165,7 +165,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validatePassword("akash@saxena16");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid Password", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
@@ -174,7 +174,7 @@ public class UserRegistrationTest {
         try {
             String validationResult = userRegistrationGradle.validatePassword("aKa$h1");
         }catch (Exception e) {
-            Assertions.assertEquals("Invalid Password", e.getMessage());
+            Assertions.assertEquals("Invalid Input", e.getMessage());
         }
     }
 
