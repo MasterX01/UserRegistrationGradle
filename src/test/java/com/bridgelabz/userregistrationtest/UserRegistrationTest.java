@@ -4,6 +4,7 @@ import com.bridgelabz.userregistrationgradle.UserRegistrationGradle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 public class UserRegistrationTest {
 
     UserRegistrationGradle userRegistrationGradle = new UserRegistrationGradle();
@@ -13,6 +14,7 @@ public class UserRegistrationTest {
     public void givenFirstName_whenValid_ReturnHappy() throws Exception {
         String validationResult = userRegistrationGradle.validateFirstName("Akash");
         Assertions.assertEquals("HAPPY", validationResult);
+
     }
 
     @Test
