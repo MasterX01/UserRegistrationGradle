@@ -3,6 +3,11 @@ package com.bridgelabz.userregistrationtest;
 import com.bridgelabz.userregistrationgradle.UserRegistrationGradle;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 public class UserRegistrationTest {
 
@@ -133,6 +138,36 @@ public class UserRegistrationTest {
         Assertions.assertEquals("SAD", validationResult);
     }
 
+
     @ParameterizedTest
+    @MethodSource("emailList")
+    public void givenListOfEmail_whenCheckingForAllParameters(String email, String expectedResult) {
+        String actualResult = userRegistrationGradle.validateEmail(email);
+        Assertions.assertEquals(expectedResult, actualResult);
+    }
+     static Stream<Arguments> emailList() {
+        return Stream.of(
+                        Arguments.arguments("abc@yahoo.com", "HAPPY"),
+                        Arguments.arguments("abc-100@yahoo.com", "HAPPY"),
+                        Arguments.arguments("abc.100@yahoo.com", "HAPPY"),
+                        Arguments.arguments("abc111@abc.com", "HAPPY"),
+                        Arguments.arguments("abc-100@abc.net", "HAPPY"),
+                        Arguments.arguments("abc.100@abc.com.au", "HAPPY"),
+                        Arguments.arguments("abc@1.com", "HAPPY"),
+                        Arguments.arguments("abc@gmail.com.com", "HAPPY"),
+                        Arguments.arguments("abc+100@gmail.com", "HAPPY"),
+                        Arguments.arguments("abc", "SAD"),
+                        Arguments.arguments("abc@.com.my", "SAD"),
+                        Arguments.arguments("abc123@gmail.a", "SAD"),
+                        Arguments.arguments("abc123@.com", "SAD"),
+                        Arguments.arguments("abc123@.com.com", "SAD"),
+                        Arguments.arguments(".abc@abc.com", "SAD"),
+                        Arguments.arguments("abc()*@gmail.com", "SAD"),
+                        Arguments.arguments("abc..2002@gmail.com", "SAD"),
+                        Arguments.arguments("abc.@gmail.com", "SAD"),
+                        Arguments.arguments("abc@gmail.com.1a", "SAD"),
+                        Arguments.arguments("abc@gmail.com.aa.au", "SAD")
+        );
+     }
     
 }

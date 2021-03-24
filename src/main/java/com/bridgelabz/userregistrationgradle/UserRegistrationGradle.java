@@ -78,7 +78,7 @@ public class UserRegistrationGradle {
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration Program");
         UserRegistrationGradle obj = new UserRegistrationGradle();
-        obj.takeInput();
+        //obj.takeInput();
     }
 
 }
